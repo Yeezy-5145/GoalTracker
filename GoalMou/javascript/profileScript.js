@@ -1,23 +1,20 @@
 //upload profile image
-function readURL(input) {
-  console.log("123");
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      $("#imagePreview").css(
-        "background-image",
-        "url(" + e.target.result + ")"
-      );
-      console.log(e.target.result);
-      $("#imagePreview").hide();
-      $("#imagePreview").fadeIn(650);
-    };
-    reader.readAsDataURL(input.files[0]);
+$(document).ready(function(){
+  // Prepare the preview for profile picture
+      $("#profilePic").change(function(){
+          readURL(this);
+      });
+  });
+  function readURL(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+  
+          reader.onload = function (e) {
+              $('#profilePicPreview').attr('src', e.target.result).fadeIn('slow');
+          }
+          reader.readAsDataURL(input.files[0]);
+      }
   }
-}
-$("#imageUpload").change(function () {
-  readURL(this);
-});
 
 //hide show password
 $(document).ready(function () {
@@ -61,12 +58,8 @@ function closeNav() {
 }
 
 //Delete account JS
-// Get the modal
-var modal = document.getElementById("modalID");
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-};
+// $(document).ready(function(){
+//   $("#myBtn").click(function(){
+//       $("#myModal").modal("show");
+//   });
+// });
