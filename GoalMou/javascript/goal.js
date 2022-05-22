@@ -15,7 +15,7 @@ $(function () {
   });
 });
 
-function verifyUser(e) {
-  e.preventDefault();
-  window.location.href = "./goalList_1.html";
-}
+// function verifyUser(e) {
+//   e.preventDefault();
+//   window.location.href = "./goalList_1.html";
+// }
