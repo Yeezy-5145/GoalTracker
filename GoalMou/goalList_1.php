@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "username";
 $password = "password";
-$dbname = "myGoals";
+$dbname = "goal";
  
 // create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
  
-$sql = "SELECT title, due_date, category FROM MYGOALS";
+$sql = "SELECT title, due_date, category FROM goal";
 $result = $conn->query($sql);
 
 $goalTitle = array();
@@ -322,9 +322,46 @@ $goalAmount = count($goalTitle);
             <i class="fa fa-search"></i>
           </div>
 
-          <div class="totalGoal">
+          <!-- <div class="totalGoal">
             <h3>Total goal: <span class="goalNumber">4</span></h3>
-          </div>
+          </div> -->
+
+          <select class="filter" id="my-filter" style="padding: 10px 20px;margin: 0 0 15px 0;border-radius: 20px;">
+            <option value="all" selected="" id="valueAll">All</option>
+            <option value="a" id="value1">Health and fitness</option>
+            <option value="b" id="value2">Financial</option>
+            <option value="Academics" id="value3">Academics</option>
+            <option value="Character" id="value4">Character</option>
+            <option value="Career" id="value5">Career</option>
+            <option value="Others" id="value6">Others</option>
+          </select>
+
+          <script>
+            document.getElementById("my-filter").addEventListener("change", filterFunction);
+
+            function filterFunction() {
+              // Declare variable
+              var input, filter, allGoals, h3, i, txtValue;
+              input = document.getElementById("my-filter");
+              console.log("inputSearch"+input);
+              filter = input.value.toUpperCase();
+              allGoals = document.querySelectorAll(".each-goal");
+              console.log(allGoals.length);
+              h3 = document.querySelectorAll(".goalC");
+              console.log(h3);
+
+              // Loop through all list items, and hide those who don't match the search query
+              for (i = 0; i < allGoals.length; i++) {
+                txtValue = h3[i].textContent || h3[i].innerText;
+                console.log(txtValue);
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  allGoals[i].style.display = "";
+                } else {
+                  allGoals[i].style.display = "none";
+                }
+              }
+            }
+          </script>
 
           <div class="create-goal-area">
             <button class="create-goal-button">
@@ -338,6 +375,7 @@ $goalAmount = count($goalTitle);
           var goalNumber = <?php echo json_encode($goalAmount); ?>;
           let goalTitleJS = <?php echo json_encode($goalTitle); ?>;
           let goalDueDateJS = <?php echo json_encode($goalDueDate); ?>;
+          let goalCategoryJS = <?php echo json_encode($category); ?>;
           for (let i = 0; i < goalNumber; i++) {
             // debugger;
             //write a tag
@@ -390,8 +428,11 @@ $goalAmount = count($goalTitle);
             var h3Title = document.createElement('h3');
             var pDC = document.createElement('p');
             h3Title.className = 'goalT';
+            pDC.className = 'goalC';
             h3Title.textContent = goalTitleJS[i];
-            pDC.textContent = goalDueDateJS[i];
+            // var DueDateAndCategory = goalDueDateJS[i] + "%nbsp%nbsp%nbsp%nbsp%nbsp" + goalCategoryJS[i];
+            // console.log(DueDateAndCategory);
+            pDC.textContent = goalDueDateJS[i] + "    " + goalCategoryJS[i];
             divGoalText.appendChild(h3Title);
             divGoalText.appendChild(pDC);
             // debugger;
