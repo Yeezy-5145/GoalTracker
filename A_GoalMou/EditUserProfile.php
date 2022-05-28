@@ -42,6 +42,16 @@
   </head>
 
   <body>
+   <?php
+    $link = mysqli_connect('localhost', 'root', '','user_profile');
+    $id = 1;
+    $result1 = mysqli_query($link,"SELECT * FROM user WHERE user_id=$id");
+    $personal = mysqli_fetch_array($result1);
+    $result2 = mysqli_query($link,"SELECT * FROM address WHERE user_id=$id");
+	  $address = mysqli_fetch_array($result2);
+    $avatar_src = "upload/".$personal['avatar'];
+    ?> 
+
     <!--Nav Bar-->
     <div class="back-wrap">
       <!-- YS's code -->
@@ -73,8 +83,8 @@
           <div class="navigation">
             <div class="profile">
               <a href="./ViewUserProfile.html">
-                <img src="./images/bird.gif" class="profilePhoto" />
-                <p class="username">Charmander</p>
+              <img src="<?php echo $avatar_src;?>" class="profilePhoto" />
+                <p class="username"><?php echo $personal["username"]; ?></p>
               </a>
             </div>
           </div>
@@ -265,15 +275,6 @@
     </div>
     <div id="invis-background"></div>
 
-    <?php
-    $link = mysqli_connect('localhost', 'root', '','user_profile');
-    $id = 1;
-    $result1 = mysqli_query($link,"SELECT * FROM user WHERE user_id=$id");
-    $personal = mysqli_fetch_array($result1);
-    $result2 = mysqli_query($link,"SELECT * FROM address WHERE user_id=$id");
-	  $address = mysqli_fetch_array($result2);
-    $avatar_src = "upload/".$personal['avatar'];
-    ?> 
 
 <form action = "userProfile.php" method ="post" enctype="multipart/form-data">
     <div class="container">
