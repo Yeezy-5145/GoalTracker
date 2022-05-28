@@ -328,8 +328,8 @@ $goalAmount = count($goalTitle);
 
           <select class="filter" id="my-filter" style="padding: 10px 20px;margin: 0 0 15px 0;border-radius: 20px;">
             <option value="all" selected="" id="valueAll">All</option>
-            <option value="a" id="value1">Health and fitness</option>
-            <option value="b" id="value2">Financial</option>
+            <option value="Health and fitness" id="value1">Health and fitness</option>
+            <option value="Financial" id="value2">Financial</option>
             <option value="Academics" id="value3">Academics</option>
             <option value="Character" id="value4">Character</option>
             <option value="Career" id="value5">Career</option>
