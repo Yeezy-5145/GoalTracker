@@ -35,27 +35,16 @@
   </head>
 
   <body>
-    <!--Nav Bar-->
     <div class="back-wrap">
-      <!-- YS's code -->
+
+      <!--Nav Bar-->
       <div class="navigation-bar">
         <div class="nav-left-part">
-          <a
-            class="btn btn-light btn-lg wide-button"
-            data-bs-toggle="offcanvas"
-            href="#sidebar"
-            role="button"
-            aria-controls="sidebar"
-            id="openSideBar"
-          >
+          <a class="btn btn-light btn-lg wide-button" data-bs-toggle="offcanvas" href="#sidebar" role="button" aria-controls="sidebar" id="openSideBar">
             &#9776;
           </a>
           <div class="logo">
-            <img
-              src="./images/transparent-logo-rectangle.png"
-              alt=""
-              srcset=""
-            />
+            <img src="./images/transparent-logo-rectangle.png" alt="" srcset="" />
             <a href="./goalList_1.html">
               <h1>GoalMou</h1>
             </a>
@@ -108,12 +97,7 @@
                             <i class="fa fa-map-pin"></i> Mamak
                           </div>
                           <div class="m-t-15">
-                            <img
-                              src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                              width="16"
-                              class="img-circle pull-left m-r-5"
-                              alt=""
-                            />
+                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" width="16" class="img-circle pull-left m-r-5" alt="" />
                             Jocelyn
                           </div>
                         </div>
@@ -153,55 +137,28 @@
 
       <div id="invis-background"></div>
 
-      <div
-        class="offcanvas offcanvas-start"
-        tabindex="-1"
-        id="sidebar"
-        aria-labelledby="sidebar-label"
-      >
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebar-label">
         <div class="offcanvas-header">
           <a href="./goalList_1.html" style="text-decoration: none">
-            <img
-              src="./images/transparent-logo-goalmou.png"
-              alt=""
-              width="250"
-            />
+            <img src="./images/transparent-logo-goalmou.png" alt="" width="250" />
           </a>
-          <button
-            id="closeSideBar"
-            type="button"
-            class="btn-close text-reset"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
+          <button id="closeSideBar" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <hr />
         <div class="sidebar-nav offcanvas-body">
           <ul class="sidebar-nav navbar-nav">
             <li>
-              <a
-                id="userProfileOuter"
-                href="#userProfile"
-                data-toggle="collapse"
-                aria-expanded="false"
-                class="dropdown-toggle collapsed"
-                ><i
-                  class="bi bi-person-bounding-box"
-                  style="font-size: 30px"
-                ></i>
-                User Profile</a
-              >
+              <a id="userProfileOuter" href="#userProfile" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed"><i class="bi bi-person-bounding-box" style="font-size: 30px"></i>
+                User Profile</a>
               <ul id="userProfile" class="navbar-nav collapse lisst-unstyled">
                 <li>
                   <a href="ViewUserProfile.html">
-                    <i class="bi-person" style="font-size: 25px"></i
-                    ><span class="item-text"> View Profile</span>
+                    <i class="bi-person" style="font-size: 25px"></i><span class="item-text"> View Profile</span>
                   </a>
                 </li>
                 <li>
                   <a href="EditUserProfile.html">
-                    <i class="fa fa-pencil-square-o"></i
-                    ><span class="item-text"> Edit Profile</span>
+                    <i class="fa fa-pencil-square-o"></i><span class="item-text"> Edit Profile</span>
                   </a>
                 </li>
               </ul>
@@ -210,25 +167,16 @@
               <hr class="dropdown-divider" />
             </li>
             <li>
-              <a
-                id="goalsNavigation"
-                href="#goalsNav"
-                data-toggle="collapse"
-                aria-expanded="false"
-                class="dropdown-toggle collapsed"
-                ><i class="bi-award" style="font-size: 30px"></i> My Goals</a
-              >
+              <a id="goalsNavigation" href="#goalsNav" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed"><i class="bi-award" style="font-size: 30px"></i> My Goals</a>
               <ul id="goalsNav" class="navbar-nav collapse lisst-unstyled">
                 <li>
                   <a href="create-goal.html">
-                    <i class="fa fa-tachometer"></i
-                    ><span class="item-text"> Create Goal</span>
+                    <i class="fa fa-tachometer"></i><span class="item-text"> Create Goal</span>
                   </a>
                 </li>
                 <li>
                   <a href="goalList_1.html">
-                    <i class="fa fa-area-chart"></i
-                    ><span class="item-text"> Goal List</span>
+                    <i class="fa fa-area-chart"></i><span class="item-text"> Goal List</span>
                   </a>
                 </li>
               </ul>
@@ -238,8 +186,7 @@
             </li>
             <li>
               <a href="chart.html">
-                <i class="fa fa-line-chart"></i
-                ><span class="item-text"> Goal Report</span>
+                <i class="fa fa-line-chart"></i><span class="item-text"> Goal Report</span>
               </a>
             </li>
             <li>
@@ -247,8 +194,7 @@
             </li>
             <li>
               <a href="goal.html">
-                <i class="bi-door-open" style="font-size: 27px"></i
-                ><span class="item-text"> Log Out</span>
+                <i class="bi-door-open" style="font-size: 27px"></i><span class="item-text"> Log Out</span>
               </a>
             </li>
             <li>
@@ -260,7 +206,7 @@
       <div id="invis-background"></div>
 
       <!-- Inputs -->
-      <div class="main-form bg-light">
+      <form class="main-form bg-light" action="./backend/create-goal-back.php" method="POST">
         <br />
         <div id="logo-center">
           <a href="./goalList_1.html"
@@ -280,11 +226,11 @@
             class="form-control"
             required
           />
-          <label for="completion-date">Due Date</label>
+          <label for="to-complete-date">Due Date</label>
           <input
-            type="datetime-local"
-            id="completion-date"
-            name="completion-date"
+            type="date"
+            id="to-complete-date"
+            name="to-complete-date"
             class="form-control"
             required
           />
@@ -302,7 +248,7 @@
             rows="4"
             class="form-control"
             name="goal-description"
-            id="goal-completion"
+            id="goal-description"
             style="resize: none"
           ></textarea>
 
@@ -338,12 +284,12 @@
                         onclick="addActivity(event)"
                         style="font-size: large"
                       ></i>
-                      <!-- <i class="fa fa-trash-o delete-icon" onclick="deleteAction(e, name)"></i> -->
+                      <i class="fa fa-trash-o delete-icon" onclick="deleteAction(event)"></i>
                     </div>
                     <ol class="activity-list">
                       <div class="action-list-1">
-                        <li>
-                          <div class="action-plan-activity">
+                        <li class = "activity-1-1">
+                          <div class="action-plan-activity mt-1">
                             <input
                               type="text"
                               id="activity-input"
@@ -352,7 +298,7 @@
                               placeholder="Activity 1 . 1"
                               required
                             />
-                            <!-- <i class="fa fa-trash-o delete-icon" onclick="deleteAction(e, name)"></i> -->
+                            <i class="fa fa-trash-o delete-icon" onclick="deleteActivity(event)"></i>
                           </div>
                         </li>
                       </div>
@@ -362,28 +308,17 @@
               </ol>
             </div>
           </div>
-
-          <!-- Action Plan -->
-
-          <!-- <input type="text" id="step-2" name="step-2" class="form-control" placeholder="Second Step"><br>
-					<input type="text" id="step-3" name="step-3" class="form-control" placeholder="Third Step"><br>
-					<input type="text" id="step-4" name="step-4" class="form-control" placeholder="Fourth Step"><br>
-					<input type="text" id="step-5" name="step-5" class="form-control" placeholder="Fifth Step"><br>
-					<input type="text" id="step-6" name="step-6" class="form-control" placeholder="Sixth Step"><br>
-					<input type="text" id="step-7" name="step-7" class="form-control" placeholder="Seventh Step"><br>
-					<input type="text" id="step-8" name="step-8" class="form-control" placeholder="Eighth Step"><br> -->
-
           <div id="logo-center">
             <input
               type="submit"
               class="btn btn-primary btn-lg col-5"
-              onclick="submitForm(event)"
-              value="SUBMIT"
+              name="submit"
+              value="Submit"
             />
           </div>
           <br /><br />
         </div>
-      </div>
+      </form>
 
       <!-- Footer -->
       <footer><br /><br /><br /><br /></footer>
@@ -410,7 +345,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/javascript/create-goal.js"></script>
+    <script type="text/javascript" src="./javascript/create-goal.js"></script>
     <script type="text/javascript" src="./javascript/progressbar.js"></script>
   </body>
 </html>
