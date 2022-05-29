@@ -76,9 +76,9 @@ function addActionPlan(e) {
   e.preventDefault();
   // console.log($('.action-plan-body ol li').length - $('.activity-list li').length);
 
+  var index = $(".action-plan-body ol li").length - $(".activity-list li").length + 1;
   var newInput = document.createElement("li");
-  var index =
-    $(".action-plan-body ol li").length - $(".activity-list li").length + 1;
+  newInput.className = `action-${index}`;
 
   newInput.innerHTML = `
   <div class="action-item mt-2">
@@ -96,7 +96,6 @@ function addActionPlan(e) {
     onclick="addActivity(event)"
     style="font-size: large"
   ></i>
-  <i class="fa fa-trash-o delete-icon" onclick="deleteAction(e, name)"></i>
 </div>
 <ol class="activity-list">
   <div class="action-list-${index}">
@@ -106,7 +105,7 @@ function addActionPlan(e) {
           type="text"
           id="activity-input"
           name="activity-${index}-1"
-          class="activity-input form-control activity-${index}-1"
+          class="activity-input form-control"
           placeholder="Activity ${index} . 1"
           required
         />
@@ -147,28 +146,66 @@ function deleteActivity(e) {
   var currentAction = nameToDelete.split("-")[1];
   var currentActivity = nameToDelete.split("-")[2];
   var totalActivity = e.target.parentElement.parentElement.parentElement.getElementsByTagName("li").length;
-  console.log(`activity-${currentAction}-${currentActivity}`);
-  // console.log(e.target.parentElement.children[0].getAttribute("name"));
-  // console.log("." + e.target.parentElement.children[0].getAttribute("name"));
-
-  let currentLi = document.querySelector("." + e.target.parentElement.children[0].getAttribute("name"));
-  currentLi.remove();
-  var currentIndex = currentActivity;
-
-  while (currentIndex < totalActivity) {
-    currentIndex++;
-    let nextLi = document.querySelector(`.activity-${currentAction}-${parseInt(currentActivity) + 1}`);
-    nextLi.setAttribute("class", `activity-${num-1}`)
-    nextLi.firstElementChild.firstElementChild.setAttribute("")
+  
+  // To calculate total action (Stored in var totalAction)
+  let actionSelector = document.querySelector(`.action-${currentAction}`);
+  var totalAction = 1;
+  var tempAction = actionSelector;
+  while (true) {
+    if(tempAction.nextElementSibling) {
+      totalAction += 1;
+      tempAction = tempAction.nextElementSibling;
+    } else break;
+  }
+  tempAction = actionSelector;
+  while (true) {
+    if(tempAction.previousElementSibling) {
+      totalAction += 1;
+      tempAction = tempAction.previousElementSibling;
+    } else break;
   }
 
-  // while (num < ith) {
-  //   num++;
-  //   let li = document.querySelector(`.newActivity-${num}`);
-  //   console.log("li", li);  
-  //   li.setAttribute("class", `newActivity-${num-1}`);
-  //   let input = li.firstElementChild.firstElementChild
-  //   console.log("input", input);
-  //   input.setAttribute("name", `activity-${num-1}`)
-  // }
+  if(totalActivity === 1) {
+    let actionToDelete = document.querySelector(`.action-${currentAction}`);
+    actionToDelete.remove();
+    var currentActionIndex = parseInt(currentAction);
+
+    while (currentActionIndex < totalAction) {
+      
+      let nextAction = document.querySelector(`.action-${currentActionIndex + 1}`);
+      var newActionName = "action-" + currentActionIndex;
+      nextAction.setAttribute("class", newActionName);
+      nextAction.firstElementChild.firstElementChild.setAttribute("name", newActionName);
+      nextAction.firstElementChild.firstElementChild.setAttribute("placeholder", `Action ${currentActionIndex}`);
+      currentActionIndex++;
+      
+      var currentIndex = 1;
+      let currentOrderedList = document.querySelector(`.action-list-${currentActionIndex}`);
+      var numberOfActivities = currentOrderedList.getElementsByTagName("li").length;
+      currentOrderedList.setAttribute("class", `action-list-${currentActionIndex - 1}`);
+    
+      while (currentIndex <= numberOfActivities) {
+        let currentLi = document.querySelector(`.activity-${currentActionIndex}-${currentIndex}`);
+        var newName = "activity-" + (currentActionIndex - 1) + "-" + currentIndex;
+        currentLi.setAttribute("class", newName);
+        currentLi.firstElementChild.firstElementChild.setAttribute("name", newName);
+        currentLi.firstElementChild.firstElementChild.setAttribute("placeholder", `Activity ${currentActionIndex - 1} . ${currentIndex}`);
+        currentIndex++;
+      }
+    }
+    
+  } else {
+    let currentLi = document.querySelector("." + e.target.parentElement.children[0].getAttribute("name"));
+    currentLi.remove();
+    var currentIndex = currentActivity;
+
+    while (currentIndex < totalActivity) {
+      let nextLi = document.querySelector(`.activity-${currentAction}-${parseInt(currentIndex) + 1}`);
+      var newName = "activity-" + currentAction + "-" + currentIndex;
+      nextLi.setAttribute("class", newName);
+      nextLi.firstElementChild.firstElementChild.setAttribute("name", newName);
+      nextLi.firstElementChild.firstElementChild.setAttribute("placeholder", `Activity ${currentAction} . ${currentIndex}`);
+      currentIndex++;
+    }
+  }
 }

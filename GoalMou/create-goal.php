@@ -105,7 +105,7 @@
             <div class="action-plan-body">
               <ol class="action-list">
                 <div class="new-action">
-                  <li>
+                  <li class="action-1">
                     <div class="action-item">
                       <input
                         type="text"
@@ -121,11 +121,10 @@
                         onclick="addActivity(event)"
                         style="font-size: large"
                       ></i>
-                      <!-- <i class="fa fa-trash-o delete-icon" onclick="deleteAction(e, name)"></i> -->
                     </div>
                     <ol class="activity-list">
                       <div class="action-list-1">
-                        <li>
+                        <li class = "activity-1-1">
                           <div class="action-plan-activity mt-1">
                             <input
                               type="text"
@@ -135,7 +134,7 @@
                               placeholder="Activity 1 . 1"
                               required
                             />
-                            <!-- <i class="fa fa-trash-o delete-icon" onclick="deleteAction(e, name)"></i> -->
+                            <i class="fa fa-trash-o delete-icon" onclick="deleteActivity(event)"></i>
                           </div>
                         </li>
                       </div>

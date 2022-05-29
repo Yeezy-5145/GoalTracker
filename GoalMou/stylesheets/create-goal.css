@@ -85,7 +85,7 @@ label {
 
 .action-plan-input {
   /* width: 95%; */
-  width: 89%;
+  width:94.3%;
 }
 
 .action-item {
@@ -95,7 +95,7 @@ label {
 }
 
 .action-item .addStep {
-  padding-right: 5px;
+  padding-right: 7px;
   cursor: pointer;
 }
 
@@ -114,8 +114,6 @@ label {
   padding-right: 5px;
   cursor: pointer;
 }
-
-
 
 /* .new-action {
   padding-bottom: 10px;
