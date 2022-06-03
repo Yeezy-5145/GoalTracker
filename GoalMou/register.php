@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once "dbconnect.php";
+require_once "backend/dbconnect.php";
 //Registration stuff
 // Define variables and initialize with empty values
 $username = $password = $email = $confirm_password = "";
