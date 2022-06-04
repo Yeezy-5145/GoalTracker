@@ -10,7 +10,7 @@
 	/* Line Graph */
 	$query=$link->query("
 		SELECT monthname(creation_date)as monthname,count(goal_id) as number FROM `goal` 
-		WHERE user_id=$user AND completion_status='2'
+		WHERE user_id=$user AND completion_status='100'
 		GROUP BY monthname
 		ORDER BY creation_date;
 		");
