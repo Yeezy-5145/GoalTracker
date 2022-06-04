@@ -39,6 +39,11 @@ label {
   font-weight: bold;
 }
 
+/* ol li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+} */
+
 .main-form {
   border: 1px solid black;
   width: 700px;
@@ -79,8 +84,8 @@ label {
 }
 
 .action-plan-input {
-  width: 95%;
-  /* width: 90%; */
+  /* width: 95%; */
+  width:94.3%;
 }
 
 .action-item {
@@ -90,7 +95,7 @@ label {
 }
 
 .action-item .addStep {
-  padding-right: 5px;
+  padding-right: 7px;
   cursor: pointer;
 }
 
@@ -101,6 +106,16 @@ label {
 }
 
 .activity-input {
-  width: 100%;
-  /* width: 94.7%; */
+  /* width: 100%; */
+  width: 94%;
 }
+
+.delete-icon {
+  padding-right: 5px;
+  cursor: pointer;
+}
+
+/* .new-action {
+  padding-bottom: 10px;
+  padding-top: 10px;
+} */
