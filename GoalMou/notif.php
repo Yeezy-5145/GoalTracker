@@ -1,11 +1,12 @@
 <?php
   require_once "backend/dbconnect.php";
+  require_once "backend/session.php";
+  $user_id = $_SESSION['user_id'];
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
-    <!-- Bootstrap -->
     <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
     rel="stylesheet"
@@ -22,7 +23,7 @@
     />
     <link rel="stylesheet" href="./stylesheets/notif.css"/>
 </head>
-<body>
+<body> -->
 <div class="panel panel-default">
   <div class="panel-body">
     <!-- Single button -->
@@ -44,10 +45,10 @@
         <li>
             <?php
             // mentor comment //type M
-            $sql = 'SELECT comment.mentor_name, comment.time, goal.title
+            $sql = "SELECT comment.mentor_name, comment.time, goal.title
                     FROM comment
                     INNER JOIN goal ON goal.goal_id=comment.goal_id 
-                    ORDER BY comment.time DESC LIMIT 10;';
+                    WHERE user_id='$user_id' ORDER BY comment.time DESC LIMIT 10;";
             $result = mysqli_query($link, $sql);
             $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
             mysqli_free_result($result);
@@ -60,8 +61,7 @@
                 }, $row);
     
             // exceeded due date //type E
-            $sql1 = 'SELECT title, due_date, completion_status FROM goal 
-                    ORDER BY due_date DESC LIMIT 10';
+            $sql1 = "SELECT title, due_date, completion_status FROM goal WHERE user_id='$user_id' ORDER BY due_date DESC LIMIT 10";
             $result1 = mysqli_query($link, $sql1);
             $row1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
             mysqli_free_result($result1);
@@ -70,8 +70,7 @@
                }, $row1);
   
             // approaching due date //type A
-            $sql2 = 'SELECT title, due_date, completion_status FROM goal 
-                    ORDER BY due_date DESC LIMIT 10';
+            $sql2 = "SELECT title, due_date, completion_status FROM goal WHERE user_id='$user_id' ORDER BY due_date DESC LIMIT 10";
             $result2 = mysqli_query($link, $sql2);
             $row2 = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             mysqli_free_result($result2);
@@ -93,7 +92,7 @@
             $dateNow = date_create();
             $date = date_format($dateNow,"Y-m-d");
             $date2 = date_format($dateNow, "Y-m-d H:i:s");
-            
+
             // $date3 = (date_create($comment["due_date"]))->modify('-1 day');
             // print_r($date3);
             // print_r($date);
@@ -142,12 +141,7 @@
     </div>
   </div>
 </div>
-<script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
-    <script
+    <!-- <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
       crossorigin="anonymous"
@@ -162,15 +156,5 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
-
-    <script
-      rel="preconnect"
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    ></script>
-    <script 
-        src="https://cdnjs.cloudflare.com/ajax/libs/sass.js/0.11.1/sass.min.js" 
-        integrity="sha512-/F8YhC3n5OrM9ta9htMD620kH0paKnjDHCHcSvyWumxlqsnkS/XCpYExuMZuXE4K3GE9tDQFBqgXsmkjsjRbDQ==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-    </script>
 </body>
-</html>
+</html> -->

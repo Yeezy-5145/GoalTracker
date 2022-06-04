@@ -56,7 +56,7 @@
   cursor: pointer;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
-  border-top-left-radius: 0px;
+  border-top-left-radius: px;
   border-top-right-radius: 0px;
   transition: all 0.3s ease;
 }

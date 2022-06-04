@@ -1,3 +1,9 @@
+<?php
+  require_once "backend/session.php";
+  require_once "backend/dbconnect.php";
+  $user_id = $_SESSION['user_id'];
+?>
+
 <!--Nav Bar-->
 <div class="navigation-bar">
   <div class="nav-left-part">
@@ -15,15 +21,18 @@
   <div class="nav-right-part">
     <div class="navigation">
       <div class="profile">
-        <a href="./ViewUserProfile.html">
-          <img src="./images/bird.gif" class="profilePhoto" />
-          <p class="username">Charmander</p>
+        <a href="./ViewUserProfile.php">
+          <img src="<?php echo $avatar_src;?>" class="profilePhoto" />
+          <p class="username"><?php echo $_SESSION['username'] ?></p>
         </a>
       </div>
     </div>
 
     <!--Notification button-->
-    <div class="notification" id="noti-bar">
+    <?php 
+      include_once "notif.php";
+    ?>
+    <!-- <div class="notification" id="noti-bar">
       <button onclick="myFunction()" class="notificationButton">
         <i class="fa fa-bell"></i>
       </button>
@@ -92,7 +101,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 
@@ -113,12 +122,12 @@
           User Profile</a>
         <ul id="userProfile" class="navbar-nav collapse lisst-unstyled">
           <li>
-            <a href="ViewUserProfile.html">
+            <a href="ViewUserProfile.php">
               <i class="bi-person" style="font-size: 25px"></i><span class="item-text"> View Profile</span>
             </a>
           </li>
           <li>
-            <a href="EditUserProfile.html">
+            <a href="EditUserProfile.php">
               <i class="fa fa-pencil-square-o"></i><span class="item-text"> Edit Profile</span>
             </a>
           </li>
@@ -131,7 +140,7 @@
         <a id="goalsNavigation" href="#goalsNav" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed"><i class="bi-award" style="font-size: 30px"></i> My Goals</a>
         <ul id="goalsNav" class="navbar-nav collapse lisst-unstyled">
           <li>
-            <a href="create-goal.html">
+            <a href="create-goal.php">
               <i class="fa fa-tachometer"></i><span class="item-text"> Create Goal</span>
             </a>
           </li>
@@ -146,7 +155,7 @@
         <hr class="dropdown-divider" />
       </li>
       <li>
-        <a href="chart.html">
+        <a href="chart.php">
           <i class="fa fa-line-chart"></i><span class="item-text"> Goal Report</span>
         </a>
       </li>
@@ -154,7 +163,7 @@
         <hr class="dropdown-divider" />
       </li>
       <li>
-        <a href="goal.html">
+        <a href="logout.php">
           <i class="bi-door-open" style="font-size: 27px"></i><span class="item-text"> Log Out</span>
         </a>
       </li>

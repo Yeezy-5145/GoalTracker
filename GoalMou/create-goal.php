@@ -22,6 +22,7 @@
 
     <!-- Overwrite BootStrap -->
     <link rel="stylesheet" href="./stylesheets/progressbar.css" />
+    <link rel="stylesheet" href="./stylesheets/notif.css" />
     <link href="./stylesheets/create-goal.css" rel="stylesheet" />
 
     <!-- Style Sheet Reference -->
@@ -180,6 +181,11 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/sass.js/0.11.1/sass.min.js" 
+        integrity="sha512-/F8YhC3n5OrM9ta9htMD620kH0paKnjDHCHcSvyWumxlqsnkS/XCpYExuMZuXE4K3GE9tDQFBqgXsmkjsjRbDQ==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
 
     <script type="text/javascript" src="./javascript/create-goal.js"></script>
     <script type="text/javascript" src="./javascript/progressbar.js"></script>
