@@ -5,7 +5,7 @@
     
     // Check if the user is already logged in, if yes then redirect him to welcome page
     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
-        header("location: goalList_1.html");
+        header("location: goalList_1.php");
         exit();
     }
     
@@ -60,6 +60,9 @@
                                 $_SESSION["loggedin"] = true;
                                 $_SESSION["user_id"] = $user_id;
                                 $_SESSION["username"] = $username;
+                                $result1 = mysqli_query($link,"SELECT * FROM user WHERE user_id=$user_id");
+	                            $personal = mysqli_fetch_array($result1);
+                                $_SESSION["avatar_src"] = "upload/".$personal['avatar'];
                                 // Redirect user to goal page
                                 header("location: goalList_1.php");
                             } else{

@@ -89,6 +89,7 @@ if(isset($_POST["submit"])) {
 			if(move_uploaded_file($file_tmp_name,$target_dir.$file_name)) { 
 				$sql3 = "UPDATE user SET avatar='$file_name'
 				WHERE user_id = $id"; 
+				$_SESSION['avatar_src'] = "upload/".$file_name;
 				
 				// run query 
 				$r = mysqli_query($link,$sql3); 

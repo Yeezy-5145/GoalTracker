@@ -1,5 +1,6 @@
 <?php
   require_once 'dbconnect.php';
+  require_once 'session.php';
 
   /*** Database Connection Test ***/
   // if($conn) {
@@ -75,6 +76,7 @@
 
     while(true) {
       $unique_id = uniqid();
+      echo $unique_id;
       $temp = "action-" . $actionNumber;
       if(isset($_POST[$temp])) {
         // Push actions into array
@@ -107,12 +109,13 @@
     $toComplete = $_POST['to-complete-date'];
     $category = $_POST['goal-category'];
     $description = mysqli_real_escape_string($link, $_POST['goal-description']);
+    $user_id = $_SESSION['user_id'];
 
-    $sql = "INSERT INTO goal(goal_id,title,due_date,category,description) VALUES('$goal_id','$title','$toComplete','$category','$description')";
-  
+    $sql = "INSERT INTO goal(goal_id, user_id,title,due_date,category,description) VALUES('$goal_id','$user_id','$title','$toComplete','$category','$description')";
+
     if(mysqli_query($link, $sql)){
       // Success
-      header("Location: http://localhost/Web%20Programming/Assignment/GoalTracker/GoalMou/create-goal.php");
+      header("Location: ../goalList_1.php");
       die();
     } else {
       echo "query error: " . mysqli_error($conn);

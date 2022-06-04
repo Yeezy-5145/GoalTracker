@@ -36,7 +36,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 /* nav bar */
@@ -143,7 +143,7 @@
 }
 
 .search-bar input {
-  padding: 5px 15px;
+  padding: 7px 15px;
   border-radius: 15px;
   font-size: 17px;
   margin-right: 15px;
@@ -152,6 +152,13 @@
 .search-bar i {
   color: #fff;
   font-size: 20px;
+  cursor: pointer;
+}
+
+.filter {
+  border-radius: 15px;
+  padding: 0px 15px;
+  height: 45px;
   cursor: pointer;
 }
 
@@ -164,7 +171,7 @@
 }
 
 .goal-list-wrapper {
-  height: 550px;
+  max-height: 550px;
   padding: 20px;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -235,8 +242,6 @@
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  visibility: hidden;
-  opacity: 0;
   transition: 0.5s;
 }
 

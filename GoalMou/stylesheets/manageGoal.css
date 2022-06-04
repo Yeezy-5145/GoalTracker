@@ -37,17 +37,21 @@ body {
   width: 100%;
   height: 100vh;
   padding: 50px 0;
-  z-index: 10000000;
+  background-image: linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.6)),
+    url("../images/bg23.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
-
-.viewGoal {
+/* .viewGoal {
   background: url("../images/bg01.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-color: rgba(74, 74, 74, 0.2);
   padding: 0 !important;
-}
+} */
 
 .bg {
   width: 100%;
@@ -70,10 +74,12 @@ body {
 
 .imgArea img {
   z-index: 10000000000;
+  width: 70px;
+  height: 70px;
 }
 
 .imgArea h1 {
-  color: #fff;
+  color: #000;
   font-size: 40px;
   z-index: 100000000;
 }
@@ -92,9 +98,11 @@ body {
   overflow-x: hidden;
 }
 
-.goalView {
-  max-height: 81.5%;
-}
+/* .viewGoal {
+  height: 90% !important;
+} */
+
+
 
 .create-goal-area {
   margin-right: 17px;
@@ -122,14 +130,14 @@ body {
   color: #fff;
 }
 
-.row-line {
+.row {
   width: 100%;
   display: flex;
   align-items: baseline;
   margin-bottom: 25px;
 }
 
-.row-line .fa {
+.row .fa {
   margin-right: 20px;
   font-size: 25px;
 }
@@ -181,7 +189,7 @@ hr {
 /* Category */
 .category-menu {
   margin-top: 10px;
-  padding: 5px 15px;
+  padding: 5px 10px;
   border-radius: 10px;
   font-size: 15px;
   cursor: pointer;
@@ -190,6 +198,10 @@ hr {
 .category-title {
   font-size: 28px;
   font-weight: 700;
+}
+
+.category {
+  margin-top: 10px;
 }
 
 /* Description */
@@ -201,6 +213,10 @@ hr {
 .description-title {
   font-size: 28px;
   font-weight: 700;
+}
+
+.description {
+  margin-top: 10px;
 }
 
 .addDescription.open {
@@ -244,7 +260,7 @@ hr {
   align-items: center;
 }
 
-.fa-add {
+.addActionPlan, .addDescription {
   position: absolute;
   top: 0;
   right: -35px;
@@ -254,16 +270,19 @@ hr {
   cursor: pointer;
 }
 
-.fa-add:hover {
+.addActivity:hover, 
+.addActionPlan:hover, 
+.addDescription:hover,
+.deleteActivityButton:hover {
   background: rgb(235, 235, 235);
-  align-items: center;
-  border-radius: 50%;
 }
 
 /* Action plans */
 .action-plans {
   width: 100%;
   position: relative;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .action-plans-title {
@@ -277,118 +296,199 @@ hr {
   margin-bottom: 10px;
 }
 
-.addStep.open {
+.addActionPlan.open {
   transform: rotate(45deg);
 }
 
-.newActivity {
-  width: 95%;
-  background-color: rgb(240, 240, 240);
-  /* border-top: none;
-  border-right: none;
-  border-left: none;
-  border-bottom: 2px solid rgb(63, 63, 63); */
-  border: none;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  padding: 5px 15px;
-  font-size: 17px;
-  border-radius: 20px;
-}
-
-.addActivityIcon.open {
-  transform: rotate(45deg);
-}
-
-.action-plans ol {
-  margin-top: 5px;
-  margin-left: 0px;
-  padding-left: 0 !important;
-}
-
-.action-plans ol li {
-  margin-bottom: 10px;
-  display: list-item;
-  align-items: center;
+.action-plan-body{
   position: relative;
+  margin-bottom: 15px;
+  display: none;
+  transition: all 0.75s ease;
+  transform: translateY(-150%);
+}
+
+.action-plan-body.open {
+  transform: translateY(0px);
+  display: block;
+}
+
+.openAddActivity {
+  font-size: 23px !important;
+  margin-right: 0 !important;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
   cursor: pointer;
 }
 
-.action-plans ol li div {
+.openAddActivity.open {
+  transform: rotate(45deg);
+}
+
+.openAddActivity:hover {
+  background: rgb(235, 235, 235);
+}
+
+.action-list {
+  width: 100%;
+}
+
+.new-action {
+  width: 100%;
+}
+
+.new-action li {
+  width: 100%;
+}
+
+.action-item {
+  width: 93%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.action-plan-input {
+  width: 100%;
+  padding: 4px 10px;
+  border-radius: 10px;
+  border: 1px solid #000;
+}
+
+.addActivity {
+  font-size: 23px !important;
+  margin-right: 0 !important;
+  margin-left: 5px;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.activity-list {
+  margin-left: 20px;
+}
+
+.action-plan-activity {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px !important;
 }
 
-.action-plans ol li div i {
-  margin-left: 15px;
-  font-size: 17px;
-  display: flex;
-}
-
-.action-plans ol li p {
-  font-size: 18px;
-  word-spacing: 2.5px;
-  margin-bottom: 0;
-}
-
-.action-plans ol li .checkDone {
-  margin-left: 40px;
+.deleteActivityButton {
+  font-size: 23px !important;
+  margin-right: 0 !important;
+  margin-left: 5px;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
   cursor: pointer;
-  accent-color: var(--skin-color);
+}
+
+.firstActivity {
+  opacity: 0;
+}
+
+.activity-list div li {
+  list-style:lower-roman;
+}
+
+.activity-input  {
+  width: 100%;
+  padding: 4px 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #000;
+}
+
+.actionPlanButton {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+}
+
+.addActionPlanButton {
+  padding: 5px 10px;
+  border-radius: 20px;
+  background-color: #000;
+  color: #fff;
+  transition: all 0.3s ease;
   /* position: absolute;
-  top: 5px;
-  right: -70px; */
-  width: 18px;
-  height: 18px;
+  bottom: -20px;
+  right: 0; */
+  cursor: pointer;
+}
+
+.addActionPlanButton:hover {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.step-ul {
+  margin-left: 20px;
+  /* transform: translateY(-20%); */
+}
+
+.step-ul-li {
+  margin-bottom: 15px;
 }
 
 .step {
+  margin-bottom: 5px;
+}
+
+.step p {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.sub-step-ol {
+  margin-left: 20px;
+}
+
+.sub-step-ol li {
+  list-style:disc;
+  margin-bottom: 5px;
+}
+
+.sub-step {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
 }
 
-.step-text {
-  width: 100%;
+.sub-step p {
+  font-size: 18px;
 }
 
-.left-part {
-  display: block !important;
-  width: 100%;
+.checkDone {
+    width: 18px !important;
+    height: 18px !important;
+    cursor: pointer;
+    accent-color: #000;
 }
 
-.activities {
-  width: 100%;
-}
-
-.activities ul {
-  width: 100%;
-}
-
-.activities ul li {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.newStep {
+.editMain {
   width: 95%;
-  background-color: rgb(240, 240, 240);
-  /* border-top: none;
-  border-right: none;
-  border-left: none;
-  border-bottom: 2px solid rgb(63, 63, 63); */
-  border: none;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  padding: 5px 15px;
-  font-size: 17px;
-  border-radius: 20px;
+  padding: 4px 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #000;
+}
+
+.newInputActivity {
+  margin-bottom: 5px !important;
 }
 
 /* Comments */
+.comments {
+  width: 100%;
+}
+
 .comments-title {
   font-size: 28px;
   font-weight: 700;
@@ -409,10 +509,10 @@ hr {
   height: 45px;
 }
 
-.usernameArea::-webkit-input-placeholder {
-  /* WebKit browsers */
-  /* padding-top: 8px; */
-}
+/* .usernameArea::-webkit-input-placeholder {
+  WebKit browsers
+  padding-top: 8px;
+} */
 
 .commentArea {
   margin-top: 10px;
@@ -469,6 +569,7 @@ hr {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  position: relative;
 }
 
 .comment-photo-name img {
@@ -483,6 +584,12 @@ hr {
 .comment-photo-name p {
   font-weight: 600;
   margin-top: 18px;
+}
+
+.comment-time {
+  font-weight: normal !important;
+  position: absolute;
+  right: 10px;
 }
 
 .comment .text {
@@ -501,29 +608,58 @@ hr {
   right: 18px; */
   position: fixed;
   top: 47px;
-  right: 480px;
+  left: 50px;
   color: #fff;
   cursor: pointer;
   font-size: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 .close-icon i {
-  margin-right: 0;
+  margin-right: 10px;
   padding: 7px 10px;
   border-radius: 50%;
   transition: all 0.5s ease;
-  font-size: 23px;
+  font-size: 28px;
+}
+.close-icon input {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 25px;
+  margin-left: 20px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
+/* .close-icon h4 {
+  font-size: 25px;
+}
 .close-icon i:hover {
   background: rgb(235, 235, 235);
   color: #000;
   align-items: center;
   border-radius: 50%;
-}
+} */
 
 /* Progress bar */
 .progress-bar {
+  content: "";
+  position: fixed;
+  bottom: 51px;
+  left: 31.05%;
+  background: rgb(211, 210, 210);
+  opacity: 0.85;
+  width: 37.9%;
+  height: 30px;
+  z-index: 10;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.progress-bar-mentor {
   content: "";
   position: fixed;
   bottom: 51px;
@@ -548,10 +684,11 @@ hr {
   transition: all 0.3s ease;
 }
 
-.progress-bar .percentage span {
+
+.percentage span {
   text-align: center;
   align-items: center;
-  color: #000;
+  color: #fff;
   position: absolute;
   top: 5%;
   left: 47%;
@@ -561,7 +698,7 @@ hr {
 .share-link {
   position: absolute;
   right: 20px;
-  top: 25px;
+  top: 100px;
   cursor: pointer;
 }
 
@@ -583,7 +720,7 @@ hr {
 .linkCopied {
   width: 170px;
   position: absolute;
-  top: 24px;
+  top: 0px;
   right: 63px;
   display: none;
 }
@@ -623,13 +760,92 @@ hr {
   background: rgb(222, 0, 0);
 }
 
+.editButton {
+  position: fixed;
+  top: 60px;
+  right: 50px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.editButton div::after {
+  content: "";
+  height: 2px;
+  width: 0%;
+  background-color: #f3344f;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+
+.editButton div:hover {
+  width: 100%;
+}
+
+/* .editButton input {
+  padding: 10px 18px;
+  width: 100px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 25px;
+  background-color: rgb(187, 187, 187);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+.editButton input:hover {
+  background-color: rgb(97, 97, 97);
+} */
+
+/* .editButton input:hover {
+} */
+
+.editButton div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editButton div input {
+  font-size: 25px;
+  background-color: transparent;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 1.25px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.editManage {
+  color: #fff;
+  margin-left: 15px;
+  margin-bottom: 5px;
+  margin-right:  0px !important;
+  font-size: 23px !important;
+  width: 20px;
+}
+
+.editButton button {
+  padding: 10px 18px;
+  width: 100px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 25px;
+  background-color: rgb(187, 187, 187);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.editButton button:hover {
+  background-color: rgb(97, 97, 97);
+
+}
+
 /* Style swticher */
 
 .style-switcher {
   position: absolute;
-
-  top: 80px;
-  right: 18px;
+  top: 155px;
+  right: 22px;
   padding: 15px;
   width: 250px;
   z-index: 101;
@@ -725,10 +941,19 @@ hr {
   cursor: pointer;
 }
 
+.styleView {
+  position: absolute;
+  top: 120px !important;
+  right: 22px !important;
+  padding: 15px;
+  width: 250px;
+  z-index: 101;
+  border-radius: 5px;
+  transition: all 0.75s ease;
+  transform: translateX(100%);
+}
+
 @media (max-width: 1560px) {
-  .style-switcher {
-    display: none;
-  }
 
   .action-plans ol li .checkDone {
     width: 22px;
@@ -743,6 +968,9 @@ hr {
   }
 }
 @media (max-width: 1300px) {
+    .style-switcher {
+    display: none;
+  }
   .action-plans ol li .checkDone {
     width: 28px;
     height: 28px;
