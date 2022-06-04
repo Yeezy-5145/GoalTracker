@@ -37,19 +37,19 @@
 	/* Completed goal */
 	$query3=$link->query("
 		SELECT count(completion_status) as completed FROM `goal` 
-		WHERE user_id=$user AND completion_status='2';
+		WHERE user_id=$user AND completion_status=100;
 	");
 
 	/* In Progress goal */
 	$query4=$link->query("
 		SELECT count(completion_status) as inProgress FROM `goal` 
-		WHERE user_id=$user AND completion_status='1';
+		WHERE user_id=$user AND completion_status BETWEEN 1 AND 99;
 	");
 
 	/* To-Do goal */
 	$query5=$link->query("
 		SELECT count(completion_status) as todo FROM `goal` 
-		WHERE user_id=$user AND completion_status='0';
+		WHERE user_id=$user AND completion_status=0;
 	");
 
 ?>

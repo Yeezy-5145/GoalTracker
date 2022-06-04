@@ -22,6 +22,7 @@
 
     <!-- Overwrite BootStrap -->
     <link rel="stylesheet" href="./stylesheets/progressbar.css" />
+    <link rel="stylesheet" href="./stylesheets/notif.css" />
     <link href="./stylesheets/create-goal.css" rel="stylesheet" />
 
     <!-- Style Sheet Reference -->

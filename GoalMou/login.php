@@ -72,7 +72,7 @@
                         }
                     } else{
                         // Username doesn't exist, display a generic error message
-                        $login_err = "Invalid username or password.";
+                        echo "Invalid username or password.";
                     }
                 } else{
                     echo "Oops! Something went wrong. Please try again later.";
