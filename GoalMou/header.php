@@ -36,6 +36,17 @@
   </div>
 </div>
 
+<style>
+  .btn-close {
+    margin-right: 20px !important;
+    margin-bottom: 50px !important;
+  }
+
+  hr {
+    margin: 0 !important;
+  }
+</style>
+
 <div id="invis-background"></div>
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebar-label">

@@ -24,6 +24,12 @@
     <link rel="stylesheet" href="./stylesheets/notif.css"/>
 </head>
 <body> -->
+  <style>
+    .notificationButton {
+      background-color: transparent !important;
+    }
+
+  </style>
 <div class="panel panel-default">
   <div class="panel-body">
     <!-- Single button -->
@@ -36,12 +42,9 @@
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu dropdown-menu-right">
-        <!-- <li>
-          <a href="#" class="top-text-block">
-            <div class="top-text-heading">You have <b>3 new themes</b> trending</div>
-            <div class="top-text-light">15 minutes ago</div>
-          </a> 
-        </li> -->
+        <li class="title-li">
+          <h1 class="notif-title">Notification</h1>
+        </li>
         <li>
             <?php
             // mentor comment //type M

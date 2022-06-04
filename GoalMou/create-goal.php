@@ -74,11 +74,11 @@
           <label for="goal-category">Category</label>
           <select id="goal-category" name="goal-category" class="form-control">
             <option value="other">Others</option>
-            <option value="health-and-fitness">Health and Fitness</option>
-            <option value="financial">Financial</option>
-            <option value="academics">Academics</option>
-            <option value="character">Character</option>
-            <option value="career">Career</option>
+            <option value="Health and Fitness">Health and Fitness</option>
+            <option value="Financial">Financial</option>
+            <option value="Academics">Academics</option>
+            <option value="Character">Character</option>
+            <option value="Career">Career</option>
           </select>
           <label for="goal-description">Description</label>
           <textarea

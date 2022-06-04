@@ -1,6 +1,17 @@
+.title-li {
+  border-bottom: 1px solid rgb(192, 192, 192);
+}
+
+.notif-title {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+}
+
 .top-text-block {
   display: block;
-  padding: 3px 20px;
+  padding: 13px 20px;
   clear: both;
   font-weight: 400;
   line-height: 1.42857143;
@@ -8,11 +19,17 @@
   white-space: inherit !important;
   border-bottom: 1px solid #f4f4f4;
   position: relative;
+  
+  /* margin: 10px 0; */
+  text-decoration: none;
+  background-color: rgb(249, 249, 249);
+  border-bottom: 1px solid rgb(240, 240, 240);
 }
 .top-text-block:hover:before {
   content: '';
   width: 4px;
-  background: #f05a1a;
+  /* background: #f05a1a; */
+  background: red;
   left: 0;
   top: 0;
   bottom: 0;
@@ -23,12 +40,12 @@
 }
 .top-text-block .top-text-light {
   color: #999;
-  font-size: 0.8em;
 }
 .top-head-dropdown .dropdown-menu {
   width: 350px;
-  height: 300px;
+  height: 350px;
   overflow: auto;
+  border-radius: 15px;
 }
 .top-head-dropdown li:last-child .top-text-block {
   border-bottom: 0;
@@ -36,6 +53,18 @@
 .topbar-align-center {
   text-align: center;
 }
+
+.top-text-heading {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.top-text-light {
+  font-size: 15px;
+  font-weight: 500 !important;
+}
+
 .loader-topbar {
   margin: 5px auto;
   border: 3px solid #ddd;
