@@ -248,10 +248,10 @@ a.widget-header-title {
   background-color: #ddd;
 }
 
-.show {
+/* .show {
   display: block;
   border-radius: 10px;
-}
+} */
 
 /*smooth scrolling*/
 html {

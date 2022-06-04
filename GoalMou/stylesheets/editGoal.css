@@ -1,0 +1,185 @@
+.title-pen {
+  margin-right: 0px !important;
+  margin-left: 10px;
+}
+
+.editTitle {
+  font-size: 30px;
+  font-weight: 700;
+  padding: 3px 0px;
+  border-radius: 15px;
+  width: 100%;
+  /* border: 1px solid #000; */
+  border: none;
+}   
+
+/* .editTitle:focus {
+  outline: none;
+} */
+
+.editDate {
+  font-size: 15px;
+  padding: 3px 10px;
+  border-radius: 10px;
+  border: 1px solid #000;
+}
+
+.editDescription {
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 16px;
+  width: 100%;
+  height: 150px;
+  resize: none;
+  margin-top: 10px;
+}
+
+.step {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editMain {
+  width: 90%;
+  font-size: 17px !important;
+  font-weight: 500 !important;
+  padding: 3px 10px !important;
+}
+
+.editActivity {
+  width: 90%;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  padding: 3px 10px !important;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border: 1px solid #000;
+}
+
+.addActionPlan {
+  width: 500px;
+}
+
+.addNewStepArea {
+  display: flex;
+  justify-content: space-between;
+}
+
+.addStepInput {
+  width: 87%;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.addSubStepInput {
+  width: 100%;
+  margin-left: 25px;
+  margin-top: 10px;
+  margin-bottom: 2px;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.addSubStep {
+  cursor: pointer;
+  padding: 7px;
+}
+
+.addSubStep:hover {
+  background: rgb(235, 235, 235);
+  align-items: center;
+  border-radius: 50%;
+}
+
+.saveChanges {
+  position: fixed;
+  top: 50px;
+  right: 120px;
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000;
+}
+
+.fa-save {
+  color: #000;
+  font-size: 25px;
+}
+
+.saveChanges input {
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 25px;
+  background-color: transparent;
+  color: #fff;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.saveChanges input:hover {
+  color: lightgreen;
+}
+
+.deleteGoal {
+  position: fixed;
+  top: 50px;
+  right: 10px;
+  width: 115px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deleteGoal input {
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.deleteGoal .fa-trash {
+  color: #fff;
+  font-size: 25px;
+}
+
+.deleteGoal input:hover {
+  /* background-color: rgb(209, 0, 0); */
+  color: red;
+}
+
+.fa-trash {
+  font-size: 19px !important;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin: 5px 7px !important;
+}
+
+.fa-trash:hover {
+  color: #ec1839;
+}
+
+.deleteActivityButton {
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  align-items: center;
+}
+
+.deleteNewActivityButton {
+  margin-right: 5px !important;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.deleteNewActivityButton:hover {
+  background: rgb(235, 235, 235);
+}
