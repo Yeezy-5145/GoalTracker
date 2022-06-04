@@ -27,6 +27,7 @@ echo $redirect_msg;
 if($checkUsername->num_rows ==0){
    $sql = "UPDATE user SET username='$userName' WHERE user_id = $id ";
    mysqli_query($link, $sql);
+	 $_SESSION['username'] = $userName;
 }
 else if($userName == $personal["username"]){
 
