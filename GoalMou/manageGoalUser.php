@@ -144,6 +144,74 @@
             // echo "Check success <br>";
             }
           }
+
+          // Action plan
+        $sql_action = "SELECT * FROM action_plan WHERE goal_id = '$id'";
+        $result_actionPlan = mysqli_query($link, $sql_action);
+        $action_plans = mysqli_fetch_all($result_actionPlan, MYSQLI_ASSOC);
+
+        // Activity
+        $activities = array();
+        $activitiesDone = array();
+        for ($i = 0; $i < count($action_plans); $i+=1) {
+          $action_id = $action_plans[$i]['action_id'];
+          // echo "action id:" . $action_id . "<br>";
+          $sql_activity = "SELECT * FROM activity WHERE action_id = '$action_id'";
+          $result_activity = mysqli_query($link, $sql_activity);
+          $activity = mysqli_fetch_all($result_activity, MYSQLI_ASSOC);
+          array_push($activities, $activity);
+          if ($i == count($action_plans) - 1) {
+            mysqli_free_result($result_activity);
+          }
+
+          // $sql = "SELECT * FROM activity WHERE action_id = '$action_id' && done = true";
+          // $result_done = mysqli_query($link, $sql);
+          // $doneActivities = mysqli_fetch_all($result_done, MYSQLI_ASSOC);
+          for ($j = 0; $j < count($activity); $j+=1) {
+            if ($activity[$j]['done'] == 1) {
+              array_push($activitiesDone, $action_id);
+            }
+          }
+        }
+
+        // Put all activties in one array
+        $allActivitiesInOneArray = array();
+          for ($i = 0; $i < count($activities); $i+=1) {
+            for ($j = 0; $j < count($activities[$i]); $j+=1) {
+              array_push($allActivitiesInOneArray, $activities[$i][$j]);
+            }
+          }
+
+          // Get length of all activities
+          // print_r($activities);
+          $totalLengthActivities = count($allActivitiesInOneArray);
+          // echo "Total: " . $totalLengthActivities . "<br>";
+
+        // Activity done
+        // print_r($activitiesDone);
+        $totalLengthDoneActivities = count($activitiesDone);
+        // echo "Done: " . count($activitiesDone) . "<br>";
+
+        // Calculate percentage
+        if ($totalLengthActivities !== 0) {
+
+          $completion_status = ($totalLengthDoneActivities / $totalLengthActivities) * 100;
+          $completion_status = number_format($completion_status, 0);
+          $sql_percent = "UPDATE goal SET completion_status = $completion_status WHERE goal_id = '$goal_id'";
+          if (mysqli_query($link, $sql_percent)) {
+            // echo "complete" . $completion_status; 
+            // echo "Update percentage";
+          }
+          setcookie("completion_status", $completion_status);
+        } else {
+          $sql_percent = "UPDATE goal SET completion_status = 0 WHERE goal_id = '$goal_id'";
+          if (mysqli_query($link, $sql_percent)) {
+            // echo "complete" . $completion_status; 
+            // echo "Update percentage";
+          }
+          setcookie("completion_status", $completion_status);
+        }
+
         
 
         header("Location: editGoal.php?id=$goal_id");
@@ -200,6 +268,75 @@
             // echo "Check success <br>";
             }
           }
+
+        // Action plan
+        $sql_action = "SELECT * FROM action_plan WHERE goal_id = '$id'";
+        $result_actionPlan = mysqli_query($link, $sql_action);
+        $action_plans = mysqli_fetch_all($result_actionPlan, MYSQLI_ASSOC);
+
+        // Activity
+        $activities = array();
+        $activitiesDone = array();
+        for ($i = 0; $i < count($action_plans); $i+=1) {
+          $action_id = $action_plans[$i]['action_id'];
+          // echo "action id:" . $action_id . "<br>";
+          $sql_activity = "SELECT * FROM activity WHERE action_id = '$action_id'";
+          $result_activity = mysqli_query($link, $sql_activity);
+          $activity = mysqli_fetch_all($result_activity, MYSQLI_ASSOC);
+          array_push($activities, $activity);
+          if ($i == count($action_plans) - 1) {
+            mysqli_free_result($result_activity);
+          }
+
+          // $sql = "SELECT * FROM activity WHERE action_id = '$action_id' && done = true";
+          // $result_done = mysqli_query($link, $sql);
+          // $doneActivities = mysqli_fetch_all($result_done, MYSQLI_ASSOC);
+          for ($j = 0; $j < count($activity); $j+=1) {
+            if ($activity[$j]['done'] == 1) {
+              array_push($activitiesDone, $action_id);
+            }
+          }
+        }
+
+        // Put all activties in one array
+        $allActivitiesInOneArray = array();
+          for ($i = 0; $i < count($activities); $i+=1) {
+            for ($j = 0; $j < count($activities[$i]); $j+=1) {
+              array_push($allActivitiesInOneArray, $activities[$i][$j]);
+            }
+          }
+
+          // Get length of all activities
+          // print_r($activities);
+          $totalLengthActivities = count($allActivitiesInOneArray);
+          // echo "Total: " . $totalLengthActivities . "<br>";
+
+        // Activity done
+        // print_r($activitiesDone);
+        $totalLengthDoneActivities = count($activitiesDone);
+        // echo "Done: " . count($activitiesDone) . "<br>";
+
+        // Calculate percentage
+        if ($totalLengthActivities !== 0) {
+
+          $completion_status = ($totalLengthDoneActivities / $totalLengthActivities) * 100;
+          $completion_status = number_format($completion_status, 0);
+          $sql_percent = "UPDATE goal SET completion_status = $completion_status WHERE goal_id = '$goal_id'";
+          if (mysqli_query($link, $sql_percent)) {
+            // echo "complete" . $completion_status; 
+            // echo "Update percentage";
+          }
+          setcookie("completion_status", $completion_status);
+        } else {
+          $sql_percent = "UPDATE goal SET completion_status = 0 WHERE goal_id = '$goal_id'";
+          if (mysqli_query($link, $sql_percent)) {
+            // echo "complete" . $completion_status; 
+            // echo "Update percentage";
+          }
+          setcookie("completion_status", $completion_status);
+        }
+
+       
         
         header("Location: goalList_1.php");
       }
