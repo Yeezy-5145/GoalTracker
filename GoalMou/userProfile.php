@@ -19,10 +19,12 @@ $result = mysqli_query($link,"SELECT * FROM user WHERE user_id=$id");
 $personal = mysqli_fetch_array($result);
 $verify = password_verify($currPass, $personal["password"]);
 $checkUsername = mysqli_query($link,"SELECT * FROM user WHERE username='$userName'");
+$checkEmail = mysqli_query($link,"SELECT * FROM user WHERE email='$email'");
 $redirect_msg = "You will be redirect back to the edit user profile page after 2 seconds.<br>";
 $success = True;
 
 echo $redirect_msg;
+
 //check username
 if($checkUsername->num_rows ==0){
    $sql = "UPDATE user SET username='$userName' WHERE user_id = $id ";
@@ -36,6 +38,19 @@ else{
    echo "<script>alert('Your username entered is existed. Please enter a new username.');</script>";
    $success = False;
 }
+
+//check email
+if($checkEmail->num_rows ==0){
+	$sql = "UPDATE user SET email='$email' WHERE user_id = $id ";
+	mysqli_query($link, $sql);
+ }
+ else if($email == $personal["email"]){
+ 
+ }
+ else{
+	echo "<script>alert('Your email entered is existed. Please enter a new email.');</script>";
+	$success = False;
+ }
 
 $sql = "UPDATE user SET birthday='$birthday', 
       first_name='$firstName', last_name='$lastName', email='$email',phone_number='$phone'
