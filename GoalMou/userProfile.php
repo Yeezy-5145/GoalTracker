@@ -53,7 +53,7 @@ if($checkEmail->num_rows ==0){
  }
 
 $sql = "UPDATE user SET birthday='$birthday', 
-      first_name='$firstName', last_name='$lastName', email='$email',phone_number='$phone'
+      first_name='$firstName', last_name='$lastName',phone_number='$phone'
       WHERE user_id = $id ";
 
 mysqli_query($link, $sql);
