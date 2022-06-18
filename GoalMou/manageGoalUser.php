@@ -783,7 +783,7 @@
           const linkCopied = document.querySelector(".linkCopied");
 
           // navigator.clipboard.writeText(window.location.href);
-          navigator.clipboard.writeText(`http://localhost/GoalMou/viewGoalMentor.php?id=${id}`);
+          navigator.clipboard.writeText(`http://localhost/GoalTracker/GoalMou/viewGoalMentor.php?id=${id}`);
           linkCopied.style.display = "block";
           setTimeout(() => {
             linkCopied.style.display = "none";
