@@ -12,7 +12,7 @@
 		SELECT monthname(creation_date)as monthname,count(goal_id) as number FROM `goal` 
 		WHERE user_id=$user AND completion_status='100'
 		GROUP BY monthname
-		ORDER BY creation_date;
+		ORDER BY due_date;
 		");
 
 	foreach($query as $data)
