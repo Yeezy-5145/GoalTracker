@@ -120,3 +120,19 @@
     transform: rotate(360deg);
   }
 } */
+
+.bell {
+  position: relative;
+}
+
+.unread { 
+  background-color: red;
+  border-radius: 50%;
+  align-items: center;
+  text-align: center;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 5px;
+  right: 0;
+}

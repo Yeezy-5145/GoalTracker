@@ -38,7 +38,10 @@
         Notification <span class="caret"></span>
       </button> -->
       <button type="button" class="btn btn-default notificationButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fa fa-bell"></i> 
+      <div class="bell">
+        <i class="fa fa-bell"></i>
+        <div class="unread"></div> 
+      </div>
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu dropdown-menu-right">
@@ -48,7 +51,7 @@
         <li>
             <?php
             // mentor comment //type M
-            $sql = "SELECT comment.mentor_name, comment.time, goal.title
+            $sql = "SELECT comment.mentor_name, comment.time, goal.title, goal.goal_id
                     FROM comment
                     INNER JOIN goal ON goal.goal_id=comment.goal_id 
                     WHERE user_id='$user_id' ORDER BY comment.time DESC LIMIT 10;";
@@ -64,7 +67,7 @@
                 }, $row);
     
             // exceeded due date //type E
-            $sql1 = "SELECT title, due_date, completion_status FROM goal WHERE user_id='$user_id' ORDER BY due_date DESC LIMIT 10";
+            $sql1 = "SELECT title, due_date, completion_status, goal_id FROM goal WHERE user_id='$user_id' ORDER BY due_date DESC LIMIT 10";
             $result1 = mysqli_query($link, $sql1);
             $row1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
             mysqli_free_result($result1);
@@ -73,7 +76,7 @@
                }, $row1);
   
             // approaching due date //type A
-            $sql2 = "SELECT title, due_date, completion_status FROM goal WHERE user_id='$user_id' ORDER BY due_date DESC LIMIT 10";
+            $sql2 = "SELECT title, due_date, completion_status, goal_id FROM goal WHERE user_id='$user_id' ORDER BY due_date DESC LIMIT 10";
             $result2 = mysqli_query($link, $sql2);
             $row2 = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             mysqli_free_result($result2);
@@ -105,8 +108,8 @@
                 if ($comment["type"] == "M"){
                     $output = '
                     <li>
-                    <a href="#" class="top-text-block">
-                    <div class="top-text-heading">'.$comment["mentor_name"].' has commented on '.$comment["title"].'</div>
+                    <a href="manageGoalUser.php?id='.$comment["goal_id"].'" class="top-text-block">
+                    <div class="top-text-heading">'.$comment["mentor_name"].' has commented on goal '.$comment["title"].'</div>
                     <div class="top-text-light">'.$comment["due_date"].'</div>
                     </a>
                     </li>
@@ -114,7 +117,7 @@
                 }elseif ($comment["type"] == "E" && $comment["completion_status"]<100 && ($date > $comment["due_date"])){
                     $output = '
                     <li>
-                    <a href="#" class="top-text-block">
+                    <a href="manageGoalUser.php?id='.$comment["goal_id"].'" class="top-text-block">
                     <div class="top-text-heading">Your goal '.$comment["title"].' has exceeded its due date!</div>
                     <div class="top-text-light">'.$date2.'</div>
                     </a>
@@ -128,7 +131,7 @@
                     if ($date > $date5){
                     $output = '
                         <li>
-                        <a href="#" class="top-text-block">
+                        <a href="manageGoalUser.php?id='.$comment["goal_id"].'" class="top-text-block">
                         <div class="top-text-heading">Your due date for goal '.$comment["title"].' is approaching soon... D:</div>
                         <div class="top-text-light">'.$date2.'</div>
                         </a>

@@ -14,6 +14,58 @@
   if (isset($_GET['home'])) {
     header('Location: goalList_1.php');
   }
+
+  function displayDate($date) {
+    // 2022-06-20
+    $year = substr($date, 0, 4);
+    $month = substr($date, 5, 2);
+    $day = substr($date, 8, 2);
+
+    switch ($month) {
+      case '01':
+        $month = "Jan";
+        break;
+      case '02':
+        $month = "Feb";
+        break;
+      case '03':
+        $month = "March";
+        break;
+      case '04':
+        $month = "April";
+        break;
+      case '05':
+        $month = "May";
+        break;
+      case '06':
+        $month = "June";
+        break;
+      case '07':
+        $month = "July";
+        break;
+      case '08':
+        $month = "August";
+        break;
+      case '09':
+        $month = "Sept";
+        break;
+      case '10':
+        $month = "Oct";
+        break;
+      case '11':
+        $month = "Nov";
+        break;
+      case '12':
+        $month = "Dec";
+        break;
+      
+      default:
+        $month = $month;
+        break;
+    }
+
+    return $day . " " . $month . " " . $year;
+  }
 ?>
 
 <!DOCTYPE html>
@@ -152,20 +204,24 @@
           </div>
         </div>
         <div class="goal-list-wrapper">
-          <?php foreach($goals as $goal) { ?>
-            <a href="manageGoalUser.php?id=<?php echo $goal['goal_id'] ?>" style="text-decoration: none">
-              <div class="each-goal" >
-                <div class="goal-title-part">
-                  <div class="goal-text">
-                    <h3 class="goalT"><?php echo htmlspecialchars($goal['title']); ?></h3>
-                    <p class="goalC"><?php echo htmlspecialchars($goal['category']); ?></p>
+          <?php if (count($goals) > 0) { ?>
+            <?php foreach($goals as $goal) { ?>
+              <a href="manageGoalUser.php?id=<?php echo $goal['goal_id'] ?>" style="text-decoration: none">
+                <div class="each-goal" >
+                  <div class="goal-title-part">
+                    <div class="goal-text">
+                      <h3 class="goalT"><?php echo htmlspecialchars($goal['title']); ?></h3>
+                      <p class="goalC"><?php echo htmlspecialchars($goal['category']); ?></p>
+                    </div>
                   </div>
+                  
+                  <!-- <i class="fa fa-edit"></i> -->
+                  <p><?php echo htmlspecialchars(displayDate($goal['due_date'])); ?></p>
                 </div>
-                
-                <!-- <i class="fa fa-edit"></i> -->
-                <p><?php echo htmlspecialchars($goal['due_date']); ?></p>
-              </div>
-            </a>
+              </a>
+            <?php } ?>
+          <?php } else { ?>
+            <h3 style="color: white; text-align: center; margin-top: 10%">Stop dreaming ! <br> <br> Create a new goal now.</h3>
           <?php } ?>
         </div>
       </div>
