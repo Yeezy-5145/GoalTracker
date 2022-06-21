@@ -121,7 +121,7 @@
                       id="userName"
                       name= "userName"
                       placeholder="Username"
-                      value= <?php echo $personal["username"]; ?>
+                      value= "<?php echo $personal["username"]; ?>"
                     >
                   </div>
                 </div>
@@ -134,7 +134,7 @@
                       id="birthday"
                       name= "birthday"
                       placeholder="Birthday"
-                      value= <?php echo $personal["birthday"]; ?>
+                      value= "<?php echo $personal["birthday"]; ?>"
                     >
                   </div>
                 </div>
@@ -147,7 +147,7 @@
                       id= "firstName"
                       name= "firstName"
                       placeholder= "First Name"
-                      value= <?php echo $personal["first_name"]; ?>
+                      value= "<?php echo $personal["first_name"]; ?>"
                     >
                   </div>
                 </div>
@@ -160,7 +160,7 @@
                       id="lastName"
                       name= "lastName"
                       placeholder="Last Name"
-                      value= <?php echo $personal["last_name"]; ?>
+                      value= "<?php echo $personal["last_name"]; ?>"
                     >
                   </div>
                 </div>
@@ -173,7 +173,7 @@
                       id="email"
                       name= "email"
                       placeholder="Email"
-                      value= <?php echo $personal["email"]; ?>
+                      value= "<?php echo $personal["email"]; ?>"
                     >
                   </div>
                 </div>
@@ -186,7 +186,7 @@
                       id="phone"
                       name= "phone"
                       placeholder="Phone number"
-                      value= <?php echo $personal["phone_number"]; ?>
+                      value= "<?php echo $personal["phone_number"]; ?>"
                     >
                   </div>
                 </div>
@@ -204,7 +204,7 @@
                       id="street"
                       name= "street"
                       placeholder="Street"
-                      value = <?php echo $address["street"]; ?>
+                      value = "<?php echo $address["street"]; ?>"
                     >
                   </div>
                 </div>
@@ -217,7 +217,7 @@
                       id="city"
                       name= "city"
                       placeholder="City"
-                      value = <?php echo $address["city"]; ?>
+                      value = "<?php echo $address["city"]; ?>"
                     >
                   </div>
                 </div>
@@ -230,7 +230,7 @@
                       id="state"
                       name= "state"
                       placeholder="State"
-                      value = <?php echo $address["state"]; ?>
+                      value = "<?php echo $address["state"]; ?>"
                     >
                   </div>
                 </div>
@@ -243,7 +243,7 @@
                       id="zip"
                       name= "zip"
                       placeholder="Zip Code"
-                      value = <?php echo $address["zip_code"]; ?>
+                      value = "<?php echo $address["zip_code"]; ?>"
                     >
                   </div>
                 </div>
