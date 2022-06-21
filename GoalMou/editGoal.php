@@ -80,6 +80,13 @@
           $new_acticityContent = $_POST["editActivityInput-$i-$j"];
           $currentActivity = $activities[$j];
           $activity_id = $currentActivity['activity_id'];
+          if ($new_acticityContent == "") {
+            $sql_delete = "DELETE FROM activity WHERE activity_id = $activity_id";
+            if(mysqli_query($link, $sql_delete)) {
+              // echo "delete empty activity";
+            }
+            break;
+          }
           $sql_updateActivity = "UPDATE activity SET content = '$new_acticityContent' WHERE activity_id = '$activity_id'";
           if (mysqli_query($link, $sql_updateActivity)) {
             echo "Activity Success";
@@ -90,13 +97,13 @@
       // Insert new activity in existing action plan
       if (isset($_COOKIE['newActivities'])) {
         $newActivitiesArray = explode(",", $_COOKIE['newActivities']);
-        print_r($newActivitiesArray);
 
         for ($i = 0; $i < count($newActivitiesArray) ;$i+=2) {
           $activityContent = $_POST[$newActivitiesArray[$i]];
-          echo gettype($activity) . "<br>";
+          if ($activityContent == "") {
+            break;
+          }
           $ac_id = $newActivitiesArray[$i + 1];
-          echo $ac_id . "<br>";
           $done = false;
           $sql_newActivity = "INSERT INTO activity (action_id, content, done) VALUES ('$ac_id', '$activityContent', '$done')";
           if (mysqli_query($link, $sql_newActivity)) {
@@ -122,7 +129,7 @@
       // $sql = "UPDATE goal SET title='$title', due_date='$due_date', category='$category', description='$description' WHERE goal_id=$goal['goal_id']";
       if(mysqli_query($link, $sql)) {
         print_r($goal_id);
-        header('Location: manageGoalUser.php?id='.$goal['goal_id']);
+        header('Location: editGoal.php?id='.$goal['goal_id']);
       }
 
     }
@@ -541,6 +548,14 @@
           <!-- <i class="fa fa-trash"></i> -->
           <input form="saveChangesForm" type="submit" name="delete" value="Delete" />
         </div>
+
+        <!-- Back icon -->
+        <a href="manageGoalUser.php?id=<?php echo $goal['goal_id'] ?>">
+          <div class="close-icon">
+            <!-- <i class="fa fa-arrow-left" title="Back"></i> -->
+            <input name="saveProgressBack" type="submit" value="Back">
+          </div>
+        </a>
         
       <form 
         action="" 
@@ -627,7 +642,7 @@
         <div>
         <i 
           class="fa fa-minus deleteNewActivityButton" 
-          onclick="deleteNewActivity(event, ${action_id})"
+          onclick="deleteNewActivity(event, '${action_id}')"
          ></i>
       `;
       let newAc = [
@@ -646,7 +661,7 @@
     }
     
     function deleteNewActivity(e, action_id) {
-      console.log(e.target);
+      console.log("target", e.target);
       console.log(e.target.parentElement.previousElementSibling);
       console.log(e.target.parentElement.previousElementSibling.getAttribute("name"));
       console.log(e.target.parentElement.parentElement.parentElement);
