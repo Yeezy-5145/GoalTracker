@@ -1,7 +1,7 @@
 <?php
 require_once "backend/dbconnect.php";
 $del = $_POST['deleteAccount'];
-$id = 1;
+$id = $_SESSION['user_id'];
 if (!$link) {
     die("Connection failed: " . mysqli_connect_error());
  }
