@@ -545,8 +545,8 @@
 
         <!-- Delete -->
         <div class="deleteGoal">
-          <!-- <i class="fa fa-trash"></i> -->
-          <input form="saveChangesForm" type="submit" name="delete" value="Delete" />
+          <h3 style="color:white;  cursor: pointer" onclick="openDeleteConfirmation()">Delete</h3>
+          <!-- <input form="saveChangesForm" type="submit" name="delete" value="Delete" /> -->
         </div>
 
         <!-- Back icon -->
@@ -569,9 +569,43 @@
         id="addActionPlanForm"
         ></form>
       </div>
+      <div class="darkBg"></div>
     </div>
 
+    <!-- Confirmation delete -->
+    <div class="confirmDelete">
+          <h2>Delete Goal</h1>
+          <p>Are you sure you want to delete this goal?</p>
+          <div class="deleteGoalButton">
+            <input form="saveChangesForm" type="submit" name="delete" value="Delete" />
+            <button onclick="closeDeleteConfirmation()">Cancel</button>
+          </div>
+        </div>
+
     <script type="text/javascript">
+
+      function openDeleteConfirmation() {
+        const confirmDelete = document.querySelector(".confirmDelete")
+        confirmDelete.classList.add("open")
+
+        const wrapper = document.querySelector(".wrapper")
+        wrapper.classList.add("blur")
+
+        const darkBg = document.querySelector(".darkBg")
+        darkBg.classList.add("active")
+        
+      }
+
+      function closeDeleteConfirmation() {
+        const confirmDelete = document.querySelector(".confirmDelete")
+        confirmDelete.classList.remove("open")
+
+        const wrapper = document.querySelector(".wrapper")
+        wrapper.classList.remove("blur")
+
+        const darkBg = document.querySelector(".darkBg")
+        darkBg.classList.remove("active")
+      }
 
       let ith = 1;
       document.cookie = "length = " + ith;
