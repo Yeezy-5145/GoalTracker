@@ -140,7 +140,6 @@ if(isset($_POST['deleteAccount'])) {
 	$sql2 = "DELETE FROM user WHERE user_id=$id ";
 	mysqli_query($link, $sql2);
 	echo "<script>alert('Account deleted successfully.');</script>";
-	$success = False;
 	header("Refresh:0 url=goal.php");
 }
 
