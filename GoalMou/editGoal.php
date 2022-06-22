@@ -569,7 +569,6 @@
         id="addActionPlanForm"
         ></form>
       </div>
-      <div class="darkBg"></div>
     </div>
 
     <!-- Confirmation delete -->
@@ -590,9 +589,6 @@
 
         const wrapper = document.querySelector(".wrapper")
         wrapper.classList.add("blur")
-
-        const darkBg = document.querySelector(".darkBg")
-        darkBg.classList.add("active")
         
       }
 
@@ -602,9 +598,6 @@
 
         const wrapper = document.querySelector(".wrapper")
         wrapper.classList.remove("blur")
-
-        const darkBg = document.querySelector(".darkBg")
-        darkBg.classList.remove("active")
       }
 
       let ith = 1;
