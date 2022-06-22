@@ -133,7 +133,16 @@ if(isset($_POST["submit"])) {
 			$success = False;
 		}
 	} 
-} 
+}
+if(isset($_POST['deleteAccount'])) {
+	$sql = "DELETE FROM address WHERE user_id=$id ";
+	mysqli_query($link, $sql);
+	$sql2 = "DELETE FROM user WHERE user_id=$id ";
+	mysqli_query($link, $sql2);
+	echo "<script>alert('Account deleted successfully.');</script>";
+	header("Refresh:0 url=goal.php");
+}
+
 if($success){
 	echo "<script>alert('User Profile Update Successfully');</script>";
 	header("Refresh:0 url=EditUserProfile.php");
