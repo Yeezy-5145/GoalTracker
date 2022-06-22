@@ -69,37 +69,37 @@
 					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 						<div class="form-group">
 							<label for="userName">Username</label>
-							<input type="text" class="form-control" id="userName" name = "userName" placeholder="" readonly value = <?php echo $personal["username"]; ?>>
+							<input type="text" class="form-control" id="userName" name = "userName" placeholder="" readonly value = "<?php echo $personal["username"]; ?>">
 						</div>
 					</div>
 					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 						<div class="form-group">
 							<label for="Birthday">Birthday</label>
-							<input type="text" class="form-control" id="birthday" name="birthday" placeholder="" readonly value = <?php echo $personal["birthday"]; ?>>
+							<input type="text" class="form-control" id="birthday" name="birthday" placeholder="" readonly value = "<?php echo $personal["birthday"]; ?>">
 						</div>
 					</div>
 					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 						<div class="form-group">
 							<label for="firstName">First Name</label>
-							<input type="text" class="form-control" id="firstName" name="firstName" placeholder="" readonly value = <?php echo $personal["first_name"]; ?>>
+							<input type="text" class="form-control" id="firstName" name="firstName" placeholder="" readonly value = "<?php echo $personal["first_name"]; ?>">
 						</div>
 					</div>
 					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 						<div class="form-group">
 							<label for="lastName">Last Name</label>
-							<input type="text" class="form-control" id="lastName" name="lastName" placeholder="" readonly value = <?php echo $personal["last_name"]; ?>>
+							<input type="text" class="form-control" id="lastName" name="lastName" placeholder="" readonly value = "<?php echo $personal["last_name"]; ?>">
 						</div>
 					</div>
 					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 						<div class="form-group">
 							<label for="email">Email</label>
-							<input type="email" class="form-control" id="email" name="email" placeholder="" readonly value = <?php echo $personal["email"]; ?>>
+							<input type="email" class="form-control" id="email" name="email" placeholder="" readonly value = "<?php echo $personal["email"]; ?>">
 						</div>
 					</div>
 					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 						<div class="form-group">
 							<label for="phone">Phone</label>
-							<input type="text" class="form-control" id="phone" name="phone" placeholder="" readonly value = <?php echo $personal["phone_number"]; ?>>
+							<input type="text" class="form-control" id="phone" name="phone" placeholder="" readonly value = "<?php echo $personal["phone_number"]; ?>">
 						</div>
 					</div>
 				</div>

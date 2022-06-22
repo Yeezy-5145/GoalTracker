@@ -779,16 +779,31 @@
       }
       
         function copyURI(e, id) {
-          console.log(id);
           const linkCopied = document.querySelector(".linkCopied");
 
           // navigator.clipboard.writeText(window.location.href);
-          navigator.clipboard.writeText(`http://localhost/GoalMou/GoalTracker/GoalMou/viewGoalMentor.php?id=${id}`);
+          // navigator.clipboard.writeText(`http://202.187.15.185/GoalMou/GoalTracker/GoalMou/viewGoalMentor.php?id=${id}`);
+
+          unsecuredCopyToClipboard(`http://202.186.207.20/GoalMou/GoalTracker/GoalMou/viewGoalMentor.php?id=${id}`);
+
           linkCopied.style.display = "block";
           setTimeout(() => {
             linkCopied.style.display = "none";
           }, 2000);
-          console.log("123");
+        }
+
+        function unsecuredCopyToClipboard(text) {
+          const textArea = document.createElement("textarea");
+          textArea.value = text;
+          document.body.appendChild(textArea);
+          textArea.focus();
+          textArea.select();
+          try {
+            document.execCommand('copy');
+          } catch (err) {
+            console.error('Unable to copy to clipboard', err);
+          }
+          document.body.removeChild(textArea);
         }
 
         // Style-switcher
